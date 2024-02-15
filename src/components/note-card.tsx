@@ -16,7 +16,7 @@ export function NoteCard({ note }: NoteCardProps) {
         {/* Trigger é o botão que abre o modal - eu vou usar o Trigger sempre aonde eu vou querer abrir o modal */}
         <Dialog.Trigger className='bg-slate-800 rounded-md text-left p-5 flex-col gap-y-3 overflow-hidden relative outline-none hover:ring-2 hover:ring-slate-600 focus-visible:ring-2 focus-visible:ring-lime-400'>
           <span className='text-sm font-medium text-slate-300'>
-            {note.date.toLocaleDateString()} 
+            {formatDistanceToNow(note.date, {addSuffix: true, locale: ptBR})} 
           </span>
           <p className='text-sm leading-6 text-slate-400'>
             {note.content}
