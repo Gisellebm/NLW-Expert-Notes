@@ -1,10 +1,46 @@
+import * as Dialog from '@radix-ui/react-dialog'
+import { X } from 'lucide-react'
+
 export function NewNoteCard() {
     return (
-        <div className='bg-slate-700 rounded-md p-5 space-y-3'>
+      <Dialog.Root>
+        <Dialog.Trigger className='flex flex-col bg-slate-700 rounded-md p-5 gap-3 text-left'>
           <span className='text-sm font-medium text-slate-200'>Adicionar nota</span>
           <p className='text-sm leading-6 text-slate-400'>
             Grave uma nota em áudio que será convertida para texto automaticamente
           </p>
-        </div>
+
+        </Dialog.Trigger>
+
+        {/* Portal é o lugar onde o modal vai aparecer, ele teleporta o modal para o lugar correto, para raiz da página */}
+        <Dialog.Portal>
+          {/* Overlay é o fundo que fica transparente quando o modal estiver aberto */}
+          <Dialog.Overlay className='bg-black/50 inset-0 fixed' />
+          {/* Content é o que vai aparecer quando abrir o modal */}
+          <Dialog.Content 
+            className='fixed overflow-hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[640px] w-full h-[60vh] bg-slate-700 outline-none rounded-md flex flex-col'
+          >
+            <Dialog.Close className='bg-slate-800 text-slate-400 absolute right-0 top-0 p-1.5 hover:text-slate-100'>
+              <X className='size-5' />
+            </Dialog.Close>
+            <div className='flex flex-1 flex-col gap-3 p-5'>
+              <span className='text-sm font-medium text-slate-300'>
+                Adicionar nota
+              </span>
+              <p className='text-sm leading-6 text-slate-400'>
+                Comece <button className='font-medium text-lime-400 hover:underline'>gravando uma nota</button> em áudio ou se preferir <button className='font-medium text-lime-400 hover:underline'>utilize apenas texto</button>
+              </p>
+            </div>
+
+            <button 
+              type='button'
+              className='w-full bg-lime-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-lime-500 '
+            >
+              Salvar nota
+            </button>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+
     )
 }
