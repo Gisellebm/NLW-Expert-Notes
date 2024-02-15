@@ -102,7 +102,7 @@ export function NewNoteCard({ onNoteCreated}: NewNoteCardProps) {
           <Dialog.Overlay className='bg-black/50 inset-0 fixed' />
           {/* Content é o que vai aparecer quando abrir o modal */}
           <Dialog.Content 
-            className='fixed overflow-hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[640px] w-full h-[60vh] bg-slate-700 outline-none rounded-md flex flex-col'
+            className='fixed overflow-hidden inset-0 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:max-w-[640px] w-full md:h-[60vh] bg-slate-700 outline-none md:rounded-md flex flex-col'
           >
             <Dialog.Close className='bg-slate-800 text-slate-400 absolute right-0 top-0 p-1.5 hover:text-slate-100'>
               <X className='size-5' />
